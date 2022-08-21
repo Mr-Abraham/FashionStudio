@@ -1,25 +1,60 @@
+@import './footer';
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    // font-family: 'Aboreto';
-    // font-family: 'Montserrat', sans-serif;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body{
     height: 100vh;
 }
 
+img{
+    max-width: 100%;
+}
+main{
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.6)), url('../Images/Background3.jpg');
+    background-size: cover;
+    position: relative;
+    background-position: center;
+    width: 100%;
+    .headline{
+        position: absolute;
+        top: 50%;
+        left: 20%;
+        transform: translate(-20%,-50%);
+        font-size: 2em;
+        width: 50%;
+        color: rgb(189, 184, 184);
+        font-weight: 100;
+    }
+}
 header{
-    background: #4AC29A;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #BDFFF3, #4AC29A);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #BDFFF3, #4AC29A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    padding: 1em;
+    width: 100%;
+    padding: 2em 1em;
     display: flex;
     justify-content: space-around;
-    align-items: center;
     transition: .5s ease;
+    .navigation{
+        display: flex;
+        justify-content: space-between;
+        gap: 1em;
+        padding: 0 .5em;
+    }
+    .logo{
+        h1{
+            color: #fff;
+            border: 1px solid #fff;
+            height: 60px;
+            width: 60px;
+            display: grid;
+            place-items:center;
+            border-radius: 50%;
+        }
+    }
     .menubtn-container{
         z-index: 99;
         padding: .5em;
@@ -27,7 +62,7 @@ header{
         .menudiv{
             height: 2px;
             width: 30px;
-            background: #000;
+            background: #fff;
             margin: .4em 0;
             z-index: 99;
             transition: .5s ease;
@@ -53,26 +88,41 @@ header{
             display: grid;
             li{
                 list-style: none;
-                margin-left: 1.3em;
+                margin-left: 1.3em; 
                 margin-block: .851em;
                 font-weight: 600;
+                color: #fff;
                 a{
-                    color: #fff;
                     text-decoration: none;
                     font-size: 1.1em;
-                    &:hover{
-                        color: #4AC29A;
+                    color: #fff;
+                    font-weight: 300;
+                    position: relative;
+                    &::before{
+                        content: '';
+                        background: #fff;
+                        position: absolute;
+                        inset: 0;
+                        height: 1px;
+                        top: 120%;
+                        transform-origin: left;
+                        transform: scale(0,1);
+                        transition: .4s ease;
+                    }
+                    &:hover::before{
+                        transform: scale(1,1);
                     }
                 }
             }
         }
     }
     .search-container{
+        // border: 1px solid #fff;
         border-radius: 5px;
         position: relative;
-        // background: #fff;
         border-radius: 5px;
         outline: none;
+        height: 42.7px;
         input{
             position: absolute;
             outline: none;
@@ -80,7 +130,7 @@ header{
             background: #fff;
             margin-right: .4em;
             padding: .5em;
-            right: 30px;
+            right: 28px;
             height: 42px;
             border-radius: 5px 0px 0px 5px;
             z-index: 2;
@@ -90,6 +140,7 @@ header{
         }
         .active-input{
             background: #fff;
+            color: #000;
         }
 
         button{
@@ -101,6 +152,7 @@ header{
             background: none;
             font-size: 1.2em;
             width: 100%;
+            color: #fff;
         }
     }
 }
@@ -110,6 +162,12 @@ header{
     .active-input{
         background: #fff;
         transform:scale(1,1);
+        color: #000;
+    }
+    form{
+        button{
+            color: #000;
+        }
     }
 }
 
@@ -140,18 +198,33 @@ header{
 }
 
 @media (min-width:750px){
+    main{
+        .headline{
+            position: absolute;
+            top: 50%;
+            left: 20%;
+            transform: translate(-20%,-50%);
+            font-size: 3em;
+            width: 50%;
+            color: #D36B00;
+            color: rgb(113, 112, 112);
+            font-weight: 100;
+        }
+    }
    header{
     .menubtn-container{
         display: none;
        }
        nav{
         all: unset;
+        margin-left: 1em;
         ul{
             all: unset;
             li{
                 display: inline-block;
+                margin-left: 2em;
                 a{
-                    color: #000;
+                    color: #fff;
                     font-weight: 400;
                 }
             }
@@ -159,4 +232,13 @@ header{
        }
    }
 
+}
+
+@media (min-width:1050px){
+    main{
+        .headline{
+            font-size: 3.7em;
+            color: rgb(189, 184, 184);
+        }
+    }
 }
